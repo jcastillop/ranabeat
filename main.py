@@ -30,7 +30,7 @@ def executeTask():
         processResend(item.chanel_from, item.chanel_type, item.chanel_to)
 
 while True:
-    print("Start: %s" % time.ctime())
+    print("Starts: %s" % time.ctime())
     executeTask()
     sleep(45)
 

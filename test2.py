@@ -13,3 +13,4 @@ loco = appVars["file"]
 loco["id"] = root + '/img/'
 loco["log"] = root + '/img/'
 print(appVars)
+
