@@ -23,9 +23,9 @@ with TelegramClient('name', api_id, api_hash) as client:
 
     #Listar todos los chats
     for dialog in client.iter_dialogs():
-        if dialog.entity.id == 4019284206 or dialog.entity.id == 1784783316:
+        # if dialog.entity.id == 4019284206 or dialog.entity.id == 1784783316:
         #     print(dialog.stringify())    
-        # if dialog.is_channel:
+        if dialog.is_channel and dialog.name == "Bet2Earn Oficial":
             channelId = dialog.entity.id
             channelName = dialog.name
             print(dialog)

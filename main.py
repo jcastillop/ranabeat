@@ -13,7 +13,7 @@ class itemTask():
         self.chanel_type = chanel_type
         self.chanel_to = chanel_to
 
-arr_task = [itemTask(1784783316, True, 'Pruebas RanaBeat'), itemTask(1675076148, True, 'Pruebas RanaBeat'), itemTask(4019284206, False, 'Pruebas RanaBeat')]
+arr_task = [itemTask(1784783316, True, 'Pruebas RanaBeat'), itemTask(1675076148, True, 'Pruebas RanaBeat'), itemTask(4019284206, False, 'Pruebas RanaBeat'), itemTask(1064299487, True, 'Pruebas RanaBeat')]
 #arr_task = [itemTask(4019284206, 'Pruebas RanaBeat')]
 
 def executeTask():
