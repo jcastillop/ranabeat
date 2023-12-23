@@ -9,6 +9,7 @@ from helpers import manageFile
 #chanel_from = 1877311653 REVENTA DYLER
 #chanel_to = 'Pruebas RanaBeat'
 # tipos de emisores : true: chanel, false : chat
+#2029273638 Pruebas ranabeat 2
 class itemTask():
     def __init__(self,chanel_from, chanel_type,chanel_to):
         self.chanel_from = chanel_from
@@ -16,11 +17,11 @@ class itemTask():
         self.chanel_to = chanel_to
 
 arr_task = [
-    itemTask(1784783316, True, 'Pruebas RanaBeat'), 
-    itemTask(1675076148, True, 'Pruebas RanaBeat'), 
-    itemTask(4019284206, False, 'Pruebas RanaBeat'), 
-    itemTask(1064299487, True, 'Pruebas RanaBeat'),
-    itemTask(1877311653, True, 'REVENTA DYLER')
+    itemTask(1784783316, True, 2029273638), 
+    itemTask(1675076148, True, 2029273638), 
+    itemTask(4019284206, False, 2029273638), 
+    itemTask(1064299487, True, 2029273638),
+    itemTask(1877311653, True, 2029273638)
 ]
 #arr_task = [itemTask(4019284206, 'Pruebas RanaBeat')]
 
@@ -32,7 +33,7 @@ def executeTask():
 while True:
     print("Starts: %s" % time.ctime())
     executeTask()
-    sleep(45)
+    sleep(10)
 
 
 

@@ -5,7 +5,7 @@ import os
 import pathlib
 
 import params
-from helpers import getLastId, updateLastId, writeLog, getDateUTC
+from helpers import getLastId, updateLastId, writeLog, getDateUTC, writeError
 from datetime import datetime, timedelta
 from variables import appVars
 
@@ -22,6 +22,7 @@ def processResend(chanel_id_from, chanel_type, chanel_id_to):
         if chanel_type:
             entity = PeerChannel(chanel_id_from)
         channel_entity=client.get_entity(entity)
+        channel_receive_entity=client.get_entity(chanel_id_to)
         posts = client(GetHistoryRequest(
             peer=channel_entity,
             limit=100,
@@ -39,14 +40,18 @@ def processResend(chanel_id_from, chanel_type, chanel_id_to):
                 #dt = datetime.strptime(str(chat.date), '%Y-%m-%d %H:%M:%S')
                 writeLog(str(chat.id) + "\t" + str(getDateUTC(chat.date))+ "\t" + str(chat.message))
                 i += 1
-                if chat.media != None:
-                    client.download_media(chat.media, file["image"])
-                if chat.message:
-                    client.send_message(entity=chanel_id_to,message=chat.message)
-                #almacenar en BD
-                if last_id == 0:
-                    #si el archivo donde se almacena los id se acaba de crear entonces registrar el ultimo mensaje
-                    break
+                try:
+                    if chat.media != None:
+                        client.download_media(chat.media, file["image"])
+                    if chat.message:
+                        client.send_message(entity=channel_receive_entity,message=chat.message)
+                    #almacenar en BD
+                    if last_id == 0:
+                        #si el archivo donde se almacena los id se acaba de crear entonces registrar el ultimo mensaje
+                        break                    
+                except Exception as e:
+                    writeError(e)
+
             #actualizar el nuevo id
             updateLastId(posts.messages[0].id)
         print("Fin del proceso reenvio mensajes, descarga de imagenes from: " + str(chanel_id_from))
@@ -56,7 +61,7 @@ def processResend(chanel_id_from, chanel_type, chanel_id_to):
         for filename in os.listdir(file["image"]):
             f = os.path.join(file["image"], filename)
             if os.path.isfile(f) and pathlib.Path(filename).suffix == '.jpg':
-                client.send_file(chanel_id_to, f)     
+                client.send_file(channel_receive_entity, f)     
                 writeLog(f)             
         writeLog("Fin del proceso reenvio imagenes chanel_id: " + str(chanel_id_from) + " - FIN 1.1")
         print("Fin del proceso reenvio imagenes from: " + str(chanel_id_from))
