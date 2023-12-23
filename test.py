@@ -25,7 +25,7 @@ with TelegramClient('name', api_id, api_hash) as client:
     for dialog in client.iter_dialogs():
         # if dialog.entity.id == 4019284206 or dialog.entity.id == 1784783316:
         #     print(dialog.stringify())    
-        if dialog.is_channel and dialog.name == "Bet2Earn Oficial":
+        if dialog.is_channel and dialog.name == "REVENTA DYLER":
             channelId = dialog.entity.id
             channelName = dialog.name
             print(dialog)

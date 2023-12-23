@@ -5,6 +5,8 @@ from helpers import manageFile
 
 #chanel_from = 1784783316 #TITIHENRY
 #chanel_from = 1675076148 #TITIHENRY LATENIGHT
+#chanel_from = 1064299487 Bet2Earn Oficial
+#chanel_from = 1877311653 REVENTA DYLER
 #chanel_to = 'Pruebas RanaBeat'
 # tipos de emisores : true: chanel, false : chat
 class itemTask():
@@ -13,7 +15,13 @@ class itemTask():
         self.chanel_type = chanel_type
         self.chanel_to = chanel_to
 
-arr_task = [itemTask(1784783316, True, 'Pruebas RanaBeat'), itemTask(1675076148, True, 'Pruebas RanaBeat'), itemTask(4019284206, False, 'Pruebas RanaBeat'), itemTask(1064299487, True, 'Pruebas RanaBeat')]
+arr_task = [
+    itemTask(1784783316, True, 'Pruebas RanaBeat'), 
+    itemTask(1675076148, True, 'Pruebas RanaBeat'), 
+    itemTask(4019284206, False, 'Pruebas RanaBeat'), 
+    itemTask(1064299487, True, 'Pruebas RanaBeat'),
+    itemTask(1877311653, True, 'REVENTA DYLER')
+]
 #arr_task = [itemTask(4019284206, 'Pruebas RanaBeat')]
 
 def executeTask():
