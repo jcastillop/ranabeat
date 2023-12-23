@@ -2,7 +2,6 @@ import time
 from time import sleep
 from process import processResend
 from helpers import manageFile
-from apscheduler.schedulers.background import BackgroundScheduler  
 
 #chanel_from = 1784783316 #TITIHENRY
 #chanel_from = 1675076148 #TITIHENRY LATENIGHT
