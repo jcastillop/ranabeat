@@ -54,7 +54,7 @@ def manageFile(chanel_id):
     now = datetime.now()
     dat = now.strftime("%Y%m%d")
     #creacion id file
-    root = dat + '/' + str(chanel_id)
+    root = 'data/' + dat + '/' + str(chanel_id)
     if not os.path.exists(root):
         os.makedirs(root)
         os.makedirs(root + '/img/')
@@ -65,7 +65,7 @@ def manageFile(chanel_id):
         if os.path.isfile(os.path.join(file["image"], filename)):
             os.remove(os.path.join(file["image"], filename))          
 
-    file["id"] = root + '/' + str(chanel_id) + params.id_file
+    file["id"] = 'data/' + str(chanel_id) + params.id_file
     file_path_id = Path(file["id"])
     if not file_path_id.is_file():
         file_path_id.write_text("0")    

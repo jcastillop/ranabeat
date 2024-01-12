@@ -5,7 +5,8 @@ import os
 
 api_id = 22128340
 api_hash = '786e2b13cbb94b8209812d1283e1b4db'
-chanel = 1675076148 #TITIHENRY LATENIGHT
+#chanel = 1675076148 #TITIHENRY LATENIGHT
+chanel = 1517627668 #MaX ORIGAMI
 
 with TelegramClient('name', api_id, api_hash) as client:
     print('Inicio cliente')
@@ -22,17 +23,18 @@ with TelegramClient('name', api_id, api_hash) as client:
     #     hash=0))
 
     #Listar todos los chats
-    # for dialog in client.iter_dialogs():
-    #     # if dialog.entity.id == 4019284206 or dialog.entity.id == 1784783316:
-    #     #     print(dialog.stringify())    
-    #     if dialog.is_channel and dialog.name == "Pruebas RanaBeat":
-    #         channelId = dialog.entity.id
-    #         channelName = dialog.name
-    #         print(dialog)
+    for dialog in client.iter_dialogs():
+            # if dialog.entity.id == 4019284206 or dialog.entity.id == 1784783316:
+            #     print(dialog.stringify())    
+            # if dialog.is_channel and dialog.name == "Pruebas RanaBeat":
+            # if dialog.is_channel and dialog.name == "MaX ORIGAMI":
+                channelId = dialog.entity.id
+                channelName = dialog.name
+                print(str(channelId) + '-' + channelName)
     
     #Enviar mensajes
-    channel_receive_entity=client.get_entity(2029273638)
-    client.send_message(entity=channel_receive_entity,message="yo soy el mas temeroso ... oni ..chan")
+    # channel_receive_entity=client.get_entity(2029273638)
+    # client.send_message(entity=channel_receive_entity,message="yo soy el mas temeroso ... oni ..chan")
         
     #Enviar imagenes
     # channel_receive_entity=client.get_entity('Pruebas RanaBeat')
