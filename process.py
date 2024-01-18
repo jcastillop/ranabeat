@@ -3,6 +3,7 @@ from telethon.tl.functions.messages import GetDialogsRequest, GetHistoryRequest
 from telethon.tl.types import PeerUser, PeerChat, PeerChannel
 import os
 import pathlib
+import re
 
 import params
 from helpers import getLastId, updateLastId, writeLog, getDateUTC, writeError
@@ -35,14 +36,17 @@ def processResend(chanel_id_from, chanel_type, chanel_id_to):
         
         while last_id != posts.messages[0].id:
             last_id += 1
+            print("Evaluando" + str(last_id))
             for chat in posts.messages:
+                print("loop" + str(chat.id))
                 if (chat.id == last_id) or (last_id==1):
                     writeLog(str(chat.id) + "\t" + str(getDateUTC(chat.date))+ "\t" + str(chat.message))
                     try:
                         if chat.media != None:
                             client.download_media(chat.media, file["image"])
                         if chat.message:
-                            client.send_message(entity=channel_receive_entity,message=chat.message)
+                            new_message = re.sub('0.2|0.5', '1', chat.message)
+                            client.send_message(entity=channel_receive_entity,message=new_message)
                         #almacenar en BD
                         if last_id == 1:
                             last_id = chat.id
@@ -50,6 +54,7 @@ def processResend(chanel_id_from, chanel_type, chanel_id_to):
                             break                           
                     except Exception as e:
                         writeError(e)
+                    break
             #actualizar el nuevo id
             updateLastId(last_id)
 

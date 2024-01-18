@@ -20,7 +20,7 @@ class itemTask():
 arr_task = [
     # itemTask(1784783316, True, 2029273638), 
     # itemTask(1675076148, True, 2029273638), 
-    # itemTask(4019284206, False, 2029273638), 
+    # itemTask(2104894807, True, 4019284206), #canal origen a canal 2 ranabeat test
     # itemTask(1064299487, True, 2029273638),
     # itemTask(1877311653, True, 2029273638),
     itemTask(1517627668, True, 2029273638)
