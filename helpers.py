@@ -7,8 +7,8 @@ from variables import appVars
 def getLastId(chanel_id):
     file_manager = appVars["file"]
     last_id = 0
-    file = open(file_manager["id"], encoding="utf-8")
     try:
+        file = open(file_manager["id"], encoding="utf-8")
         last_id = int(file.read())
     except:
         writeError(chanel_id, "Error al convertir el last_id a entero, archivo corrupto")

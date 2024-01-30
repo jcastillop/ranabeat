@@ -26,7 +26,7 @@ arr_task = [
 def executeTask():
     for item in arr_task:
         manageFile(item.chanel_from)
-        processResend(item.chanel_from, item.chanel_type, item.chanel_to)
+        #processResend(item.chanel_from, item.chanel_type, item.chanel_to)
 
 while True:
     print("Starts: %s" % time.ctime())
