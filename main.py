@@ -3,14 +3,14 @@ from time import sleep
 from process import processResend
 from helpers import manageFile
 
-#chanel_from = 1784783316 #TITIHENRY
-#chanel_from = 1675076148 #TITIHENRY LATENIGHT
-#chanel_from = 1064299487 Bet2Earn Oficial
-#chanel_from = 1877311653 REVENTA DYLER
-#chanel_from = 1517627668 REVENTA DYLER
-#chanel_to = 'Pruebas RanaBeat'
-# tipos de emisores : true: chanel, false : chat
-#2029273638 Pruebas ranabeat 2
+#2104894807 canal origen
+#4019284206 PRUEBAS RANA 2
+#1517627668 MaX ORIGAMI
+#1622772055 VICTORCONNECTION
+#1784783316 TITIHENRY
+#1369987187-TitiHenry⚽️
+#1213735452-⛓ORIGAMI⛓
+#actual produccion max origami
 class itemTask():
     def __init__(self,chanel_from, chanel_type,chanel_to):
         self.chanel_from = chanel_from
@@ -18,15 +18,10 @@ class itemTask():
         self.chanel_to = chanel_to
 
 arr_task = [
-    # itemTask(1784783316, True, 2029273638), 
-    # itemTask(1675076148, True, 2029273638), 
-    # itemTask(2104894807, True, 4019284206), #canal origen a canal 2 ranabeat test
-    # itemTask(1064299487, True, 2029273638),
-    # itemTask(1877311653, True, 2029273638),
-    itemTask(1517627668, True, 2029273638)
-    
+    itemTask(1517627668, True, 4019284206),
+    itemTask(1622772055, True, 4019284206),
+    itemTask(1784783316, True, 4019284206)
 ]
-#arr_task = [itemTask(4019284206, 'Pruebas RanaBeat')]
 
 def executeTask():
     for item in arr_task:
