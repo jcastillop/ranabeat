@@ -31,6 +31,7 @@ def writeError(message):
     file = appVars["file"]
     now = datetime.now()
     dat = now.strftime("%d/%m/%Y %H:%M:%S") + "\t"
+    appendTXTFile("error.txt", dat + str(message))
     appendTXTFile(file["error"], dat + str(message))
 
 #auxiliares desscargas
