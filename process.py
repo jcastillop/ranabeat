@@ -75,7 +75,7 @@ async def processResend(chanel_id_from, chanel_type, chanel_id_to):
             for filename in os.listdir(file["image"]):
                 f = os.path.join(file["image"], filename)
                 if os.path.isfile(f) and pathlib.Path(filename).suffix == '.jpg':
-                    client.send_file(channel_receive_entity, f)     
+                    await client.send_file(channel_receive_entity, f)     
                     writeLog(f)    
     except Exception as e:
         writeError(str(chanel_id_from))
