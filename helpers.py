@@ -12,6 +12,7 @@ def getLastId(chanel_id):
         last_id = int(file.read())
     except:
         writeError(chanel_id, "Error al convertir el last_id a entero, archivo corrupto")
+        return last_id
     finally:
         file.close()
         

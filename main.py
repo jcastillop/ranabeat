@@ -2,6 +2,7 @@ import time
 from time import sleep
 from process import processResend
 from helpers import manageFile
+import asyncio
 
 #chanel_from = 1784783316 #TITIHENRY
 #chanel_from = 1675076148 #TITIHENRY LATENIGHT
@@ -12,6 +13,11 @@ from helpers import manageFile
 # tipos de emisores : true: chanel, false : chat
 #4019284206 Pruebas ranabeat 2
 #2104894807 canal origen
+#chanel_from = 1784783316 #TITIHENRY
+
+#chanel_from = 1802759467 MAX ORIGAMI
+#chanel_from = 2075295985 TITIHENRY MARZO
+#chanel_from = 1213588067 Formula Nacho PREMIUM
 
 #actual produccion max origami
 class itemTask():
@@ -21,12 +27,10 @@ class itemTask():
         self.chanel_to = chanel_to
 
 arr_task = [
-    # itemTask(1784783316, True, 2029273638), 
-    # itemTask(1675076148, True, 2029273638), 
-    # itemTask(2104894807, True, 4019284206) #canal origen a canal 2 ranabeat test
-    itemTask(1517627668, True, 2029273638),
-    #itemTask(1622772055, True, 2029273638),
-    itemTask(2075295985, True, 2029273638)
+    itemTask(1802759467, True, 4019284206),
+    itemTask(2075295985, True, 4019284206),
+    itemTask(1213588067, True, 4019284206)
+    # itemTask(2104894807, True, 4019284206)
     
 ]
 #arr_task = [itemTask(4019284206, 'Pruebas RanaBeat')]
@@ -34,7 +38,7 @@ arr_task = [
 def executeTask():
     for item in arr_task:
         manageFile(item.chanel_from)
-        processResend(item.chanel_from, item.chanel_type, item.chanel_to)
+        asyncio.run(processResend(item.chanel_from, item.chanel_type, item.chanel_to))
 
 while True:
     print("Starts: %s" % time.ctime())
